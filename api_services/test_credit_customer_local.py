@@ -36,7 +36,7 @@ customer_ids =[
 # Function to send POST request and print response
 def send_request(customer_id):
     data = {
-        "amount": 200,
+        "amount": 1,
         "customer_id": customer_id,
         "metadata": {
             "reason": "for completion of task"
@@ -71,22 +71,22 @@ print(f"Load test completed in {end_time - start_time:.2f} seconds")
 # test that ran indefinitely
 # only 2 concurrent requests
 
-"""
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Status Code: 400
-Request generated an exception: Extra data: line 2 column 1 (char 95)
-Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-"""
+#"""
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Status Code: 400
+#Request generated an exception: Extra data: line 2 column 1 (char 95)
+#Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+#Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+#
+#"""
