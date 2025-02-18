@@ -57,7 +57,7 @@ def load_test(customer_ids, concurrent_requests):
                 print(f"Request generated an exception: {e}")
 
 # Parameters for load test
-concurrent_requests = 5  # Number of concurrent requests
+concurrent_requests = 2  # Number of concurrent requests
 
 # Perform load test
 start_time = time.time()
@@ -68,7 +68,25 @@ print(f"Load test completed in {end_time - start_time:.2f} seconds")
 
 
 
-# test
+# test that ran indefinitely
+# only 2 concurrent requests
 
 """
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Status Code: 400
+Request generated an exception: Extra data: line 2 column 1 (char 95)
+Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Request generated an exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
 """
