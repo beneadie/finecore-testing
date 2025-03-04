@@ -5,9 +5,9 @@ import time
 import concurrent.futures
 
 # Endpoint URL and headers
-url = "https://stagingapi.finecore.co/v1/wallets"
+url = "http://localhost:8080/v1/wallets"
 headers = {
-    "X-API-Key": "flk_6f1025328641a6b2b3b309cee58a27aa_1784140885",
+    "X-API-Key": "fsk_5b0c0b7d6359fc06b70ae27d4f8468d210b9ed8a2c0105dcd7a587c90f779d8f_438241922",
     "Content-Type": "application/json"
 }
 
@@ -50,15 +50,18 @@ def load_test(concurrent_requests):
                 print(f"Request generated an exception: {e}")
 
 # Parameters for load test
-concurrent_requests = 100  # Number of concurrent requests
+concurrent_requests = 2  # Number of concurrent requests
+time_arr = []
 
 # Perform load test
-start_time = time.time()
-load_test(concurrent_requests)
-end_time = time.time()
+for i in range(50):
+    start_time = time.time()
+    load_test(concurrent_requests)
+    end_time = time.time()
+    time_arr.append(end_time - start_time)
+    print(f"Load test completed in {end_time - start_time:.2f} seconds")
 
-print(f"Load test completed in {end_time - start_time:.2f} seconds")
-
+print(f"Average latency: {sum(time_arr)/len(time_arr)}")
 
 # some tests didn't accept api key
 # one 500 error

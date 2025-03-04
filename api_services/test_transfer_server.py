@@ -11,7 +11,7 @@ headers = {
 
 # JSON data to be sent in the POST request
 data = {
-    "amount": 500,
+    "amount": 10,
     "sortCode": "000013",
     "narration": "Testing",
     "accountNumber": "1700263070",
@@ -38,7 +38,7 @@ def load_test(concurrent_requests):
                 print(f"Request generated an exception: {e}")
 
 # Parameters for load test
-concurrent_requests = 50  # Number of concurrent requests
+concurrent_requests = 1  # Number of concurrent requests
 
 # Perform load test
 start_time = time.time()

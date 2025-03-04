@@ -3,10 +3,13 @@ import concurrent.futures
 import time
 
 # Base URLs and headers
-local_url = "http://localhost:8080/v1/transactions/customer/2da3424b-1d1e-4155-a65e-d2347c37a73c"
-server_url = "https://stagingapi.finecore.co/v1/transactions/customer/2da3424b-1d1e-4155-a65e-d2347c37a73c"
+# my code not up to date. works fine on staging url
+
+local_url = "http://localhost:8080/v1/transactions/customer/2da3424b-1d1e-4155-a65e-d2347c37a73c" #34231443-3895-4604-b6f4-a70ed87b302e"
+local_url = "https://stagingapi.finecore.co/v1/transactions/customer/2da3424b-1d1e-4155-a65e-d2347c37a73c"
 headers = {
-    "X-API-Key": "flk_6f1025328641a6b2b3b309cee58a27aa_1784140885"
+    #"X-API-Key": "flk_6f1025328641a6b2b3b309cee58a27aa_1784140885"
+    "X-API-Key": "fsk_5b0c0b7d6359fc06b70ae27d4f8468d210b9ed8a2c0105dcd7a587c90f779d8f_438241922"
 }
 
 # Function to send a GET request and return the status code and response time
@@ -26,23 +29,21 @@ def load_test(url, concurrent_requests):
                 print(f"Request generated an exception: {e}")
 
 # Parameters for load test
-concurrent_requests = 10  # Number of concurrent requests
+concurrent_requests = 1  # Number of concurrent requests
 
+time_arr = []
 # Perform load test for local endpoint
-print("Starting load test for local endpoint...")
-start_time = time.time()
-load_test(local_url, concurrent_requests)
-end_time = time.time()
-print(f"Load test for local endpoint completed in {end_time - start_time:.2f} seconds\n")
 
-# Perform load test for server endpoint
-print("Starting load test for server endpoint...")
-start_time = time.time()
-load_test(server_url, concurrent_requests)
-end_time = time.time()
-print(f"Load test for server endpoint completed in {end_time - start_time:.2f} seconds")
+for i in range(50):
+    start_time = time.time()
+    load_test(local_url, concurrent_requests)
+    end_time = time.time()
+    latency = end_time - start_time
+    time_arr.append(latency)
+    print(f"Load test for local endpoint completed in {end_time - start_time:.2f} seconds")
 
 
+print(f"Average latency for local endpoint: {sum(time_arr)/len(time_arr)}")
 
 # gets 500 here and on postman for local but server is okay
 
