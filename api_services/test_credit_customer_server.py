@@ -140,7 +140,7 @@ def load_test(customer_ids, concurrent_requests):
                 print(f"Request generated an exception: {e}")
 
 # Parameters for load test
-concurrent_requests = 2  # Number of concurrent requests
+concurrent_requests = 1  # Number of concurrent requests
 
 # Perform load test
 start_time = time.time()
